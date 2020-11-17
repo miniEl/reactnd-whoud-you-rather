@@ -1,6 +1,8 @@
 :root {
-    --primary-color: #f35757;
-    --dashed-border: 1px dashed var(--primary-color);
+    /* --primary-color: #f35757; */
+    --primary-color: #2f275a;
+    /* --dashed-border: 1px dashed var(--primary-color); */
+    --dashed-border: 1px dashed #f35757;
 }
 
 body {
