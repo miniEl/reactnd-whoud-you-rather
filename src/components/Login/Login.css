@@ -1,0 +1,30 @@
+.login-card .card-header {
+    color: var(--primary-color);
+}
+
+.login-card .dropdown-menu {
+    width: 100%;
+}
+
+.login-card .dropdown-toggle {
+    width: 100%;
+    border: 1px solid #c5c5c5 !important;
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.login-card .btn-primary,
+.login-card .btn-primary:hover,
+.login-card .btn-primary:focus,
+.login-card .btn-primary:active {
+    width: 100%;
+    margin-top: 20px;
+    background: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+}
+
+.avatar {
+    height: 32px;
+    margin-right: 10px;
+}
