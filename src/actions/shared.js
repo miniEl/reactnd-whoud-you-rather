@@ -1,13 +1,16 @@
-import { getUsers } from '../utils/api';
+import { getUsers, getQuestions } from '../utils/api';
 import { recieveUsers } from './users';
+import { recieveQuestions } from './questions';
 
 export function handleInitialData() {
     return (dispatch) => {
-        // dispatch(showLoading());
-        return getUsers()
-            .then((users) => {
+        return (
+            getUsers().then((users) => {
                 dispatch(recieveUsers(users));
-                // dispatch(hideLoading());
-            });
+            }),
+            getQuestions().then((questions) => {
+                dispatch(recieveQuestions(questions));
+            })
+        )
     }
 }

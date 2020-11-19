@@ -5,8 +5,8 @@ import Card from 'react-bootstrap/Card';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Button from 'react-bootstrap/Button';
-import './Login.css';
 import { setAuthedUser } from '../../actions/authedUser';
+import './Login.css';
 
 class Login extends Component {
   state = {
@@ -38,11 +38,13 @@ class Login extends Component {
                     "select a user" :
                     users[this.state.selectedUser].name
                 }>
-                {users &&
+                {
+                  users &&
                   Object.keys(users).map(user => (
                     <Dropdown.Item onSelect={() => this.handleSelectedUser(user)} key={user} value={user}>
                       <img className="avatar" src={"../../assets/images/" + users[user].avatarURL} alt="avatar" />
-                      {users[user].name}</Dropdown.Item>
+                      {users[user].name}
+                    </Dropdown.Item>
                   ))
                 }
               </DropdownButton>
@@ -64,7 +66,6 @@ const mapStateToProps = ({ users }) => {
 const mapDispatchToProps = dispatch => {
   return {
     authenticate: (user) => {
-      console.log("DISPATCH: " + user);
       dispatch(setAuthedUser(user))
     }
   }

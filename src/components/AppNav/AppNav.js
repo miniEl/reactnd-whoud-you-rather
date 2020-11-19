@@ -5,28 +5,38 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Image from 'react-bootstrap/Image';
 // import NotFound from '../NotFound';
+import './AppNav.css';
+import { LinkContainer } from "react-router-bootstrap";
+import { removeAuthedUser } from '../../actions/authedUser';
 
 class AppNav extends Component {
 
 
   render() {
-    const authedUser = this.props;
-    // console.log("Auth" + authedUser);
+    const { authedUser, logout } = this.props;
     return (
       <Navbar variant="dark" bg="dark" expand="sm">
-        <Navbar.Brand to="/home">Whould You Rather</Navbar.Brand>
-        <Nav>
-          <Nav.Link to="/home" active>Home</Nav.Link>
-          <Nav.Link to="/add">New Question</Nav.Link>
-          <Nav.Link to="/leaderboard">Leaderboard</Nav.Link>
+        <Navbar.Brand>Whould You Rather</Navbar.Brand>
+        <Nav activeKey={window.location.pathname}>
+          <LinkContainer to="/home">
+            <Nav.Link eventKey="home">Home</Nav.Link>
+          </LinkContainer>
+          <LinkContainer to="/add">
+            <Nav.Link eventKey="add">New Question</Nav.Link>
+          </LinkContainer>
+          <LinkContainer to="/leaderboard">
+            <Nav.Link eventKey="leaderboard">Leaderboard</Nav.Link>
+          </LinkContainer>
         </Nav>
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>
-            {/* {"Hello, " + authedUser.name} */}
+            {authedUser.name}
           </Navbar.Text>
-          <Image className="avatar" src="#" alt="user avatar" />
-          <Nav>
-            <Nav.Link to="/login">Logout</Nav.Link>
+          <Image className="avatar" src={"../../assets/images/" + authedUser.avatarURL} alt="user avatar" />
+          <Nav activeKey={window.location.pathname}>
+            <LinkContainer to="/login" onClick={() => logout()}>
+              <Nav.Link eventKey="login">Logout</Nav.Link>
+            </LinkContainer>
           </Nav>
         </Navbar.Collapse >
       </Navbar >
@@ -35,11 +45,17 @@ class AppNav extends Component {
 }
 
 const mapStateToProps = ({ authedUser }) => {
-  console.log("LogedIn: ");
-  console.log(authedUser);
   return {
     authedUser
   }
 }
 
-export default connect(mapStateToProps)(AppNav);
+const mapDispatchToProps = dispatch => {
+  return {
+    logout: () => {
+      dispatch(removeAuthedUser());
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AppNav);

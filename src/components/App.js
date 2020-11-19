@@ -10,6 +10,7 @@ import NewQuestion from './NewQuestion/NewQuestion';
 import ViewQuestion from './ViewQuestion/ViewQuestion';
 import NotFound from './NotFound';
 import Switch from 'react-bootstrap/esm/Switch';
+// import { LinkContainer } from "react-router-bootstrap";
 
 class App extends Component {
   componentDidMount() {
@@ -17,7 +18,6 @@ class App extends Component {
   }
   render() {
     const { authedUser } = this.props;
-    console.log("Auth: " + authedUser);
     return (
       <Router>
         <Fragment>
@@ -30,11 +30,11 @@ class App extends Component {
               <Fragment>
                 <AppNav />
                 <Switch>
-                  <Route path="/home" extact component={Home} />
-                  <Route path="/questions/:id" exact component={ViewQuestion} />
-                  <Route path="/add/" exact component={NewQuestion} />
-                  <Route path="/leaderboard" exact component={Leaderboard} />
-                  <Route component={NotFound} />
+                  <Route extact path="/home" component={Home} />
+                  <Route extact path="/questions/:id" component={ViewQuestion} />
+                  <Route extact path="/add/" component={NewQuestion} />
+                  <Route extact path="/leaderboard" component={Leaderboard} />
+                  {/* <Route component={NotFound} /> */}
                 </Switch>
               </Fragment>
           }

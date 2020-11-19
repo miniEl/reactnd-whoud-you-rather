@@ -9,7 +9,7 @@ class NotFound extends Component {
         <Card>
           <Card.Body>
             <h3>404</h3>
-            Page Not Found
+            Sorry, page not found!
           </Card.Body>
         </Card>
       </Container>

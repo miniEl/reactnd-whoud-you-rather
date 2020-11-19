@@ -1,5 +1,5 @@
 .navbar-dark .navbar-nav .nav-link.active {
-    color: var(--primary-color) !important;
+    color: var(--secondary-color) !important;
     border-bottom: var(--dashed-border);
 }
 
@@ -9,5 +9,5 @@
 
 .avatar {
     width: 36px;
-    margin: 0 5px;
+    margin: 0 10px 0 5px;
 }

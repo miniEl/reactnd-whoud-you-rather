@@ -1,8 +1,7 @@
 :root {
-    /* --primary-color: #f35757; */
     --primary-color: #2f275a;
-    /* --dashed-border: 1px dashed var(--primary-color); */
-    --dashed-border: 1px dashed #f35757;
+    --secondary-color: #f35757;
+    --dashed-border: 1px dashed var(--secondary-color);
 }
 
 body {
@@ -25,7 +24,7 @@ code {
     box-shadow: 0 0 6px 0 rgb(0 0 0 / 15%);
 }
 
-.not-found-card {
+.not-found-card .card {
     font-weight: bold;
     background-color: rgba(0, 0, 0, .03) !important;
 }
