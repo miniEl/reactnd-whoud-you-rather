@@ -41,13 +41,11 @@ class App extends Component {
         </Fragment>
       </Router>
 
-    )
+    );
   }
 }
 
 const mapStateToProps = ({ authedUser }) => {
-  console.log("authedUser: ");
-  console.log(authedUser);
   return {
     authedUser
   }

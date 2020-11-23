@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 import { Card, Container, Tab, Tabs } from 'react-bootstrap';
 import { connect } from 'react-redux';
+import Question from './Question';
 
 class Home extends Component {
   render() {
-    const { answered, unanswered } = this.props;
+    // const { answered, unanswered } = this.props;
     return (
       <Container className="home-container">
-        <Card>
+        <Card expand="sm" className="home-card">
           <Card.Header>
             <Tabs defaultActiveKey="unanswered">
               <Tab eventKey="unanswered" title="Unanswered Questions">
-                Unanswered Questions
+                <Question />
               </Tab>
               <Tab eventKey="answered" title="Answered Questions">
                 Answered Questions
@@ -20,7 +21,7 @@ class Home extends Component {
           </Card.Header>
         </Card>
       </Container>
-    )
+    );
   }
 }
 

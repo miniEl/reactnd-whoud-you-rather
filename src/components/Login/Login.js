@@ -53,7 +53,7 @@ class Login extends Component {
           </Card.Body>
         </Card>
       </Container>
-    )
+    );
   }
 }
 

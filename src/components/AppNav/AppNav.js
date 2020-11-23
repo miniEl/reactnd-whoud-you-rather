@@ -5,9 +5,10 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Image from 'react-bootstrap/Image';
 // import NotFound from '../NotFound';
-import './AppNav.css';
 import { LinkContainer } from "react-router-bootstrap";
 import { removeAuthedUser } from '../../actions/authedUser';
+import './AppNav.css';
+
 
 class AppNav extends Component {
 
@@ -40,7 +41,7 @@ class AppNav extends Component {
           </Nav>
         </Navbar.Collapse >
       </Navbar >
-    )
+    );
   }
 }
 
