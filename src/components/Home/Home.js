@@ -12,7 +12,15 @@ class Home extends Component {
           <Card.Header>
             <Tabs defaultActiveKey="unanswered">
               <Tab eventKey="unanswered" title="Unanswered Questions">
-                <Question />
+                {Object.values(this.props.questions).map((question) => {
+                  return (
+                    <Question
+                      key={question.id}
+                      question={question}
+                    // questionsToShow={questionsToShow}
+                    />
+                  );
+                })}
               </Tab>
               <Tab eventKey="answered" title="Answered Questions">
                 Answered Questions

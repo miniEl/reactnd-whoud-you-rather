@@ -15,6 +15,10 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
+.primary-text {
+    color: var(--primary-color);
+}
+
 .card:not(.que-card) {
     width: 50%;
     margin: 10% auto;
@@ -32,4 +36,18 @@ code {
 .not-found-card h3 {
     font-weight: bold;
     color: var(--primary-color);
+}
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    width: 100%;
+    margin-top: 20px;
+    background: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+}
+
+.btn-primary:hover {
+    opacity: .95;
 }

@@ -1,20 +1,30 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Card, Container } from 'react-bootstrap';
+import { Button, Card, Container } from 'react-bootstrap';
+import './Question.css';
 
 class Question extends Component {
   render() {
-    const { user, question } = this.props;
+    const { users, question } = this.props;
     console.log('PROPS::');
-    console.log(this.props);
+    console.log(users);
+    console.log(question);
     return (
       <Container className="que-container">
         <Card expand="sm" className="que-card">
           <Card.Header>
-            <Card.Title>{user}asks:</Card.Title>
+            <Card.Title className="primary-text">{users[question.author].name} asks:</Card.Title>
           </Card.Header>
-          <Card.Body>
-            Some Text here
+          <Card.Body className="que-card-body">
+            <div className="avatar-wrapper">
+              <img className="avatar" src={"../../assets/images/" + users[question.author].avatarURL} alt="avatar" />
+            </div>
+            <div className="divider"></div>
+            <div className="content-wrapper">
+              <Card.Title>Would you rather</Card.Title>
+              <Card.Text>{question.optionOne.text}? ...</Card.Text>
+              <Button>View poll</Button>
+            </div>
 
           </Card.Body>
         </Card>
@@ -23,12 +33,13 @@ class Question extends Component {
   }
 }
 
-const mapStateToProps = ({ questions, users, id }) => {
+const mapStateToProps = ({ authedUser, questions, users, id }) => {
   // const question = questions[id];
   console.log('Data >> ');
   console.log(questions);
   console.log(users);
   return {
+    authedUser,
     users,
     questions
   }

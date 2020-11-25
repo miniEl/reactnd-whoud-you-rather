@@ -25,8 +25,8 @@ class Login extends Component {
       <Container className="login-container">
         <Card expand="sm" className="login-card">
           <Card.Header>
-            <Card.Title>Would You Rather!</Card.Title>
-            <Card.Subtitle>Please sign in to play</Card.Subtitle>
+            <Card.Title className="primary-text">Would You Rather!</Card.Title>
+            <Card.Subtitle className="primary-text">Please sign in to play</Card.Subtitle>
           </Card.Header>
           <Card.Body>
             <Dropdown>

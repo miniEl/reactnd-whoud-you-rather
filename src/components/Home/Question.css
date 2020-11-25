@@ -1,0 +1,42 @@
+.home-card .card-header .card-header-tabs {
+    margin-bottom: 40px;
+    border-bottom: 1px solid rgba(0, 0, 0, .125);
+}
+
+.que-container {
+    margin: 20px 0;
+}
+
+.que-card {
+    box-shadow: 0 0 6px 0 rgb(0 0 0 / 5%);
+}
+
+.que-card .card-header {
+    text-align: left;
+    height: 50px;
+}
+
+.que-card-body {
+    display: flex;
+}
+
+.que-card .divider {
+    height: 4em;
+    width: 1px;
+    margin: auto 12px;
+    background: rgba(0, 0, 0, .125);
+}
+
+.que-card .avatar-wrapper {
+    flex: 2;
+}
+
+.que-card .content-wrapper {
+    flex: 4;
+}
+
+.que-card .avatar-wrapper .avatar {
+    width: 100%;
+    height: 80%;
+    margin-left: 0;
+}

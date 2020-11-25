@@ -14,16 +14,6 @@
     align-items: center;
 }
 
-.login-card .btn-primary,
-.login-card .btn-primary:hover,
-.login-card .btn-primary:focus,
-.login-card .btn-primary:active {
-    width: 100%;
-    margin-top: 20px;
-    background: var(--primary-color) !important;
-    border-color: var(--primary-color) !important;
-}
-
 .avatar {
     height: 32px;
     margin-right: 10px;
