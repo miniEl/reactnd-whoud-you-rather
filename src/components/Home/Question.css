@@ -23,12 +23,12 @@
 .que-card .divider {
     height: 4em;
     width: 1px;
-    margin: auto 12px;
+    margin: auto 20px;
     background: rgba(0, 0, 0, .125);
 }
 
 .que-card .avatar-wrapper {
-    flex: 2;
+    flex: 1.5;
 }
 
 .que-card .content-wrapper {
