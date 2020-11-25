@@ -5,25 +5,31 @@ import Question from './Question';
 
 class Home extends Component {
   render() {
-    // const { answered, unanswered } = this.props;
+    const { unanswered, answered } = this.props;
     return (
       <Container className="home-container">
         <Card expand="sm" className="home-card">
           <Card.Header>
             <Tabs defaultActiveKey="unanswered">
               <Tab eventKey="unanswered" title="Unanswered Questions">
-                {Object.values(this.props.questions).map((question) => {
+                {unanswered.map((question) => {
                   return (
                     <Question
                       key={question.id}
                       question={question}
-                    // questionsToShow={questionsToShow}
                     />
                   );
                 })}
               </Tab>
               <Tab eventKey="answered" title="Answered Questions">
-                Answered Questions
+                {answered.map((question) => {
+                  return (
+                    <Question
+                      key={question.id}
+                      question={question}
+                    />
+                  );
+                })}
               </Tab>
             </Tabs>
           </Card.Header>
@@ -33,11 +39,18 @@ class Home extends Component {
   }
 }
 
-const mapsStateToProps = ({ questions }) => {
-  console.log("Questions:: ");
-  console.log(questions);
+const mapsStateToProps = ({ authedUser, questions }) => {
+  const questionsList = Object.keys(questions).map((question) => {
+    return questions[question];
+  })
   return {
-    questions
+    unanswered: questionsList.filter((question) => {
+      return !Object.keys(authedUser.answers).includes((question.id));
+    }),
+    answered: questionsList.filter((question) => {
+      return Object.keys(authedUser.answers).includes((question.id));
+    })
+
   }
 }
 

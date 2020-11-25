@@ -10,7 +10,6 @@ import NewQuestion from './NewQuestion/NewQuestion';
 import ViewQuestion from './ViewQuestion/ViewQuestion';
 import NotFound from './NotFound';
 import Switch from 'react-bootstrap/esm/Switch';
-// import { LinkContainer } from "react-router-bootstrap";
 
 class App extends Component {
   componentDidMount() {
@@ -19,29 +18,27 @@ class App extends Component {
   render() {
     const { authedUser } = this.props;
     return (
-      <Router>
-        <Fragment>
-          {
-            !authedUser ?
-              <Fragment>
-                <Redirect to="/Login" />
-                <Route exact path="/Login" component={Login} />
-              </Fragment>
-              :
-              <Fragment>
-                <AppNav />
-                <Switch>
-                  <Redirect to="/home" />
-                  <Route extact path="/home" component={Home} />
-                  {/* <Route extact path="/questions/:id" component={ViewQuestion} />
-                  <Route extact path="/add/" component={NewQuestion} />
-                  <Route extact path="/leaderboard" component={Leaderboard} /> */}
-                  {/* <Route component={NotFound} /> */}
-                </Switch>
-              </Fragment>
-          }
-        </Fragment>
-      </Router>
+      <Fragment>
+        {
+          !authedUser ?
+            <Fragment>
+              <Redirect to="/login" />
+              <Route exact path="/login" component={Login} />
+            </Fragment>
+            :
+            <Fragment>
+              <AppNav />
+              <Switch>
+                <Redirect to="/home" />
+                <Route extact path="/home" component={Home} />
+                <Route extact path="/questions/:id" component={ViewQuestion} />
+                <Route extact path="/add/" component={NewQuestion} />
+                <Route extact path="/leaderboard" component={Leaderboard} />
+                {/* <Route component={NotFound} /> */}
+              </Switch>
+            </Fragment>
+        }
+      </Fragment>
 
     );
   }

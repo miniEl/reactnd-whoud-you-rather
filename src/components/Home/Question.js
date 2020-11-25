@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Button, Card, Container } from 'react-bootstrap';
+import { Card, Container, Nav } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 import './Question.css';
 
 class Question extends Component {
   render() {
-    const { users, question } = this.props;
-    console.log('PROPS::');
-    console.log(users);
-    console.log(question);
+    const { authedUser, users, question } = this.props;
     return (
       <Container className="que-container">
         <Card expand="sm" className="que-card">
@@ -23,9 +21,10 @@ class Question extends Component {
             <div className="content-wrapper">
               <Card.Title>Would you rather</Card.Title>
               <Card.Text>{question.optionOne.text}? ...</Card.Text>
-              <Button>View poll</Button>
+              <LinkContainer to={"questions/" + question.id}>
+                <Nav.Link className="btn btn-primary" eventKey={"questions/" + question.id}>View poll</Nav.Link>
+              </LinkContainer>
             </div>
-
           </Card.Body>
         </Card>
       </Container>
@@ -33,11 +32,7 @@ class Question extends Component {
   }
 }
 
-const mapStateToProps = ({ authedUser, questions, users, id }) => {
-  // const question = questions[id];
-  console.log('Data >> ');
-  console.log(questions);
-  console.log(users);
+const mapStateToProps = ({ authedUser, users, questions }) => {
   return {
     authedUser,
     users,
