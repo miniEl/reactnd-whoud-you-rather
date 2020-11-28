@@ -1,0 +1,11 @@
+.new-que-card .card-header {
+    height: 50px;
+}
+
+.new-que-card .card-body .card-title {
+    text-align: left;
+}
+
+.new-que-card .card-body .card-text {
+    font-weight: 600;
+}
