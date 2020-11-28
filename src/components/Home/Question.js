@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Card, Container, Nav } from 'react-bootstrap';
+import { Card, Container, Image, Nav } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import './Question.css';
 
 class Question extends Component {
   render() {
-    const { authedUser, users, question } = this.props;
+    const { users, question } = this.props;
     return (
       <Container className="que-container">
-        <Card expand="sm" className="que-card">
+        <Card expand="sm" className="que-card que">
           <Card.Header>
             <Card.Title className="primary-text">{users[question.author].name} asks:</Card.Title>
           </Card.Header>
           <Card.Body className="que-card-body">
             <div className="avatar-wrapper">
-              <img className="avatar" src={"../../assets/images/" + users[question.author].avatarURL} alt="avatar" />
+              <Image className="avatar" src={"../../assets/images/" + users[question.author].avatarURL} alt="avatar" />
             </div>
             <div className="divider"></div>
             <div className="content-wrapper">
@@ -32,9 +32,8 @@ class Question extends Component {
   }
 }
 
-const mapStateToProps = ({ authedUser, users, questions }) => {
+const mapStateToProps = ({ users, questions }) => {
   return {
-    authedUser,
     users,
     questions
   }

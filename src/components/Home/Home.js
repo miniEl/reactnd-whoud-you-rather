@@ -12,24 +12,22 @@ class Home extends Component {
           <Card.Header>
             <Tabs defaultActiveKey="unanswered">
               <Tab eventKey="unanswered" title="Unanswered Questions">
-                {unanswered.map((question) => {
-                  return (
+                {
+                  unanswered.map((question) => (
                     <Question
                       key={question.id}
                       question={question}
                     />
-                  );
-                })}
+                  ))}
               </Tab>
               <Tab eventKey="answered" title="Answered Questions">
-                {answered.map((question) => {
-                  return (
+                {
+                  answered.map((question) => (
                     <Question
                       key={question.id}
                       question={question}
                     />
-                  );
-                })}
+                  ))}
               </Tab>
             </Tabs>
           </Card.Header>

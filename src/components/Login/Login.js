@@ -49,7 +49,13 @@ class Login extends Component {
                 }
               </DropdownButton>
             </Dropdown>
-            <Button disabled={!this.state.selectedUser} onClick={() => authenticate(users[this.state.selectedUser])} type="submit" value="submit">Sign in</Button>
+            <Button
+              disabled={!this.state.selectedUser}
+              onClick={() => authenticate(users[this.state.selectedUser])}
+              type="submit"
+              value="submit">
+              Sign in
+              </Button>
           </Card.Body>
         </Card>
       </Container>
