@@ -8,9 +8,7 @@ import './ViewQuestion.css';
 class ViewQuestion extends Component {
   render() {
     const { users, question } = this.props;
-    console.log('View::');
-    // console.log(users);
-    console.log(question);
+
     return (
       <Container className="view-que-container">
         <Card expand="sm" className="que-card">
@@ -45,10 +43,7 @@ class ViewQuestion extends Component {
 }
 
 const mapStateToProps = ({ authedUser, users, questions }, props) => {
-  console.log('View Que::');
   const id = props.match.params.id;
-  console.log(questions);
-
   return {
     users,
     question: questions[id],

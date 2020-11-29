@@ -3,8 +3,30 @@
 }
 
 .view-que-container .box-container {
-    border: 1px solid;
+    border: 1px solid rgb(0 0 0 / 30%);
     border-radius: 5px;
     padding: 20px;
     margin: 10px 0;
+}
+
+.view-que-container .box-container .card-subtitle {
+    margin-bottom: 30px;
+}
+
+.view-que-container .box-container .progress-bar {
+    background: var(--secondary-color);
+}
+
+.view-que-container .box-container .card-text {
+    text-align: center;
+    margin-top: 5px;
+}
+
+.view-que-container .box-container.selected {
+    border: 1px solid var(--secondary-color);
+    background: #e6cfcf;
+}
+
+.view-que-container .box-container.selected .card-subtitle {
+    color: var(--secondary-color);
 }
