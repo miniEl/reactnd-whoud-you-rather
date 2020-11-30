@@ -7,7 +7,7 @@ class Answered extends Component {
     const { authedUser, options, totalVotes } = this.props
     return (
       <Fragment>
-        <Card.Title>Results:</Card.Title>
+        <Card.Title className="primary-text">Results:</Card.Title>
         {
           options.map((option, per, selected) => (
             selected = option.votes.find(userVote => { return userVote === authedUser.id }),

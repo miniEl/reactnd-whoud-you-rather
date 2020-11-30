@@ -19,7 +19,7 @@ code {
     color: var(--primary-color);
 }
 
-.card:not(.que) {
+.card:not(.que):not(.score) {
     width: 50%;
     margin: 10% auto;
     color: #343a40;

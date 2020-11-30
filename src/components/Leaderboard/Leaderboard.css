@@ -1,0 +1,57 @@
+.user-card-container {
+    margin-top: 5%;
+}
+
+.user-card {
+    margin: 2% auto !important;
+}
+
+.user-card-body {
+    display: flex;
+    align-items: center;
+}
+
+.user-card .avatar-wrapper {
+    flex: 2.55;
+}
+
+.user-card .avatar-wrapper .avatar {
+    width: 90%;
+    height: 80%;
+    margin: 0;
+}
+
+.user-card .divider {
+    height: 8em;
+    width: 1px;
+    margin: auto 20px;
+    background: rgba(0, 0, 0, .125);
+}
+
+.user-card .content-wrapper {
+    flex: 6;
+    height: 130px;
+    text-align: left;
+}
+
+.user-card .content-wrapper .card-title {
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+.user-card .content-wrapper .card-text {
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-card .score .total-score {
+    line-height: 1.7;
+    width: 40px;
+    height: 40px;
+    background: var(--primary-color);
+    border-radius: 100%;
+    margin: auto;
+    font-weight: bold;
+    font-size: x-large;
+    color: white;
+}
