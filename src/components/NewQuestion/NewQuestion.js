@@ -8,7 +8,9 @@ class NewQuestion extends Component {
     optionOne: '',
     OptopnTwo: '',
   }
+
   render() {
+    const { optionOne, optopnTwo } = this.state;
     return (
       <Container className="new-que-container">
         <Card expand="sm" className="new-que-card">
@@ -25,7 +27,7 @@ class NewQuestion extends Component {
               <Form.Group>
                 <Form.Control type="text" placeholder="Enter Option Two"></Form.Control>
               </Form.Group>
-              <Button type="submit">Submit</Button>
+              <Button type="submit" disabled>Submit</Button>
             </Form>
           </Card.Body>
         </Card>
@@ -34,8 +36,8 @@ class NewQuestion extends Component {
   }
 }
 
-const mapStateToProps = ({ authedUser }) => {
-  console.log('New:: ' + authedUser);
+const mapStateToProps = ({ authedUser, questions }) => {
+  console.log(questions);
   return {
     authedUser
   }

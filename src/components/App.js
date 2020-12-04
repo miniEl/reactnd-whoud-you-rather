@@ -34,12 +34,11 @@ class App extends Component {
                 <Route extact path="/questions/:id" component={ViewQuestion} />
                 <Route extact path="/add/" component={NewQuestion} />
                 <Route extact path="/leaderboard" component={Leaderboard} />
-                {/* <Route component={NotFound} /> */}
+                <Route component={NotFound} />
               </Switch>
             </Fragment>
         }
       </Fragment>
-
     );
   }
 }

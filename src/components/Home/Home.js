@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Card, Container, Tab, Tabs } from 'react-bootstrap';
 import { connect } from 'react-redux';
+import { Card, Container, Tab, Tabs } from 'react-bootstrap';
 import Question from './Question';
 
 class Home extends Component {

@@ -20,7 +20,7 @@ class Answered extends Component {
           ))
         }
       </Fragment>
-    )
+    );
   }
 }
 
