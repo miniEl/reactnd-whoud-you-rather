@@ -9,19 +9,19 @@ export const recieveUsers = (users) => {
     }
 }
 
-export const addUserQuestion = (userId, qId) => {
+export const addUserQuestion = (userId, qid) => {
     return {
         type: ADD_USER_QUESTION,
         userId,
-        qId
+        qid
     }
 }
 
-export const addUserAnswer = (userid, qId, answer) => {
+export const addUserAnswer = (authedUser, qid, answer) => {
     return {
         type: ADD_USER_ANSWER,
-        userid,
-        qId,
+        authedUser,
+        qid,
         answer
     }
 }

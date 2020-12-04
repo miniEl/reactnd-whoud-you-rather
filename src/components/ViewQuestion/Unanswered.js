@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { Card, Button, Form } from 'react-bootstrap';
 import { answerQuestion } from '../../actions/questions';
+import { handleSaveAnswer, handleSaveQuestion } from '../../actions/shared';
 
 class Unanswered extends Component {
   state = {
@@ -19,10 +20,13 @@ class Unanswered extends Component {
 
     const { dispatch, authedUser, question } = this.props;
     const { selected } = this.state;
-    const qId = question.id;
-    console.log(authedUser);
+    const qid = question.id;
+    const authedUserId = authedUser.id;
+
     console.log(question);
-    dispatch(answerQuestion(authedUser, qId, selected));
+    console.log(this.props);
+    dispatch(handleSaveAnswer(authedUserId, qid, selected));
+    console.log(authedUser);
   }
 
   render() {

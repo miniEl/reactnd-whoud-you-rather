@@ -15,11 +15,12 @@ const questions = (state = {}, action) => {
         case ANSWER_QUESTION:
             return {
                 ...state,
-                [action.qId]: {
-                    ...state[action.qId],
+                [action.qid]: {
+                    ...state[action.qid],
+
                     [action.answer]: {
-                        ...state[action.qId][action.answer],
-                        votes: [...state[action.qId][action.answer].votes, action.authedUser]
+                        ...state[action.qid][action.answer],
+                        votes: [...state[action.qid][action.answer].votes, action.authedUser]
                     }
                 }
             };

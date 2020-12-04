@@ -1,5 +1,3 @@
-import authedUser from "../reducers/authedUser";
-
 export const RECIEVE_QUESTIONS = "RECIEVE_QUESTIONS";
 export const NEW_QUESTION = "NEW_QUESTION";
 export const ANSWER_QUESTION = "ANSWER_QUESTION";
