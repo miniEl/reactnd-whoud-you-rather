@@ -1,16 +1,45 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Button, Card, Container, Form } from 'react-bootstrap';
+import { handleSaveQuestion } from '../../actions/shared';
 import './NewQuestion.css';
+import { Redirect } from 'react-router-dom';
 
 class NewQuestion extends Component {
   state = {
     optionOne: '',
-    OptopnTwo: '',
+    optionTwo: '',
+    home: false
+  }
+
+  addOptionOne = (value) => {
+    this.setState({
+      optionOne: value.trim()
+    });
+  };
+  addOptionTwo = (value) => {
+    this.setState({
+      optionTwo: value.trim()
+    });
+  };
+
+  submitQuestion = (event) => {
+    event.preventDefault();
+    const { optionOne, optionTwo } = this.state;
+    const { authedUser, dispatch } = this.props;
+    const author = authedUser.id;
+    const optionOneText = optionOne;
+    const optionTwoText = optionTwo;
+    dispatch(handleSaveQuestion({ author, optionOneText, optionTwoText }));
+    this.setState(() => ({
+      home: true
+    }));
   }
 
   render() {
-    const { optionOne, optopnTwo } = this.state;
+    const { optionOne, optionTwo, home } = this.state;
+    if (home)
+      return <Redirect push to='/home' />
     return (
       <Container className="new-que-container">
         <Card expand="sm" className="new-que-card">
@@ -21,13 +50,25 @@ class NewQuestion extends Component {
             <Card.Title>Would you rather ...</Card.Title>
             <Form>
               <Form.Group>
-                <Form.Control type="text" placeholder="Enter Option One"></Form.Control>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter Option One"
+                  onChange={(event) => this.addOptionOne(event.target.value)}
+                />
               </Form.Group>
               <Card.Text>OR</Card.Text>
               <Form.Group>
-                <Form.Control type="text" placeholder="Enter Option Two"></Form.Control>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter Option Two"
+                  onChange={(event) => this.addOptionTwo(event.target.value)}
+                />
               </Form.Group>
-              <Button type="submit" disabled>Submit</Button>
+              <Button
+                type="submit"
+                onClick={(event) => this.submitQuestion(event)}
+                disabled={optionOne === '' || optionTwo === ''}
+              >Submit</Button>
             </Form>
           </Card.Body>
         </Card>
@@ -36,8 +77,7 @@ class NewQuestion extends Component {
   }
 }
 
-const mapStateToProps = ({ authedUser, questions }) => {
-  console.log(questions);
+const mapStateToProps = ({ authedUser }) => {
   return {
     authedUser
   }

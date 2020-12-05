@@ -9,6 +9,7 @@ export function getQuestions() {
 }
 
 export function saveQuestion(question) {
+    console.log('saveQuestion::', question);
     return _saveQuestion(question);
 }
 

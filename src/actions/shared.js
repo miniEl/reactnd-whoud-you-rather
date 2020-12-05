@@ -1,7 +1,7 @@
 import { getUsers, getQuestions, saveQuestion, saveQuestionAnswer } from '../utils/api';
-import { addUserAnswer, recieveUsers } from './users';
+import { addUserAnswer, recieveUsers, addUserQuestion } from './users';
 import { answerQuestion, newQuestion, recieveQuestions } from './questions';
-import { userQuestion, authedUserAnswer } from './authedUser';
+import { authedUserQuestion, authedUserAnswer } from './authedUser';
 
 export function handleInitialData() {
     return (dispatch) => {
@@ -28,11 +28,14 @@ export function handleSaveAnswer(authedUser, qid, answer) {
 }
 
 export function handleSaveQuestion(question) {
+    console.log('handleSaveQuestion::', question);
     return (dispatch) => {
-        return saveQuestion(question).then((que) => {
-            dispatch(newQuestion(que));
-            dispatch(addUserQuestion(que.auther, que.id));
-            dispatch(userQuestion(que.id));
+        return saveQuestion(question).then((formattedQuestion) => {
+            console.log('formated::', formattedQuestion);
+            // debugger;
+            dispatch(newQuestion(formattedQuestion));
+            dispatch(authedUserQuestion(formattedQuestion.id));
+            dispatch(addUserQuestion(formattedQuestion.author, formattedQuestion.id));
         })
     }
 }

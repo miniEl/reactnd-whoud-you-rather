@@ -1,8 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { Card, Button, Form } from 'react-bootstrap';
-import { answerQuestion } from '../../actions/questions';
-import { handleSaveAnswer, handleSaveQuestion } from '../../actions/shared';
+import { handleSaveAnswer } from '../../actions/shared';
 
 class Unanswered extends Component {
   state = {
@@ -17,16 +16,11 @@ class Unanswered extends Component {
 
   submitOption = (event) => {
     event.preventDefault();
-
-    const { dispatch, authedUser, question } = this.props;
     const { selected } = this.state;
+    const { dispatch, authedUser, question } = this.props;
     const qid = question.id;
     const authedUserId = authedUser.id;
-
-    console.log(question);
-    console.log(this.props);
     dispatch(handleSaveAnswer(authedUserId, qid, selected));
-    console.log(authedUser);
   }
 
   render() {
@@ -55,9 +49,7 @@ class Unanswered extends Component {
             type="submit"
             disabled={!this.state.selected}
             onClick={(event) => this.submitOption(event)}
-          >
-            Submit
-          </Button>
+          >Submit</Button>
         </Form>
       </Fragment>
     );
@@ -65,7 +57,6 @@ class Unanswered extends Component {
 }
 
 const mapStateToProps = ({ authedUser, questions }) => {
-  // console.log('Not Ans');
   return {
     authedUser,
     questions,

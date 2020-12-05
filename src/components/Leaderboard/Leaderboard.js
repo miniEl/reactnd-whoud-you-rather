@@ -6,7 +6,6 @@ import './Leaderboard.css';
 class Leaderboard extends Component {
   render() {
     const { users } = this.props;
-    // console.log(users);
     return (
       <Container className="user-card-container">
         {

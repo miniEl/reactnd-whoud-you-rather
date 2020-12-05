@@ -26,7 +26,10 @@ class ViewQuestion extends Component {
             </Card.Header>
             <Card.Body className="que-card-body">
               <div className="avatar-wrapper">
-                <Image className="avatar" src={"../../assets/images/" + users[question.author].avatarURL} alt="avatar" />
+                <Image
+                  className="avatar"
+                  src={"../../assets/images/" + users[question.author].avatarURL}
+                  alt="avatar" />
               </div>
               <div className="divider"></div>
               <div className="content-wrapper">

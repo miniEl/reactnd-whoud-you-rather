@@ -9,10 +9,11 @@ export const recieveUsers = (users) => {
     }
 }
 
-export const addUserQuestion = (userId, qid) => {
+export const addUserQuestion = (author, qid) => {
+    console.log('author:: ', author);
     return {
         type: ADD_USER_QUESTION,
-        userId,
+        author,
         qid
     }
 }
