@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Image from 'react-bootstrap/Image';
-// import NotFound from '../NotFound';
 import { LinkContainer } from "react-router-bootstrap";
 import { removeAuthedUser } from '../../actions/authedUser';
 import './AppNav.css';

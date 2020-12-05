@@ -17,6 +17,7 @@ class App extends Component {
   }
   render() {
     const { authedUser } = this.props;
+    console.log(this.props);
     return (
       <Fragment>
         {
@@ -43,7 +44,8 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = ({ authedUser }) => {
+const mapStateToProps = ({ authedUser, questions }) => {
+
   return {
     authedUser
   }

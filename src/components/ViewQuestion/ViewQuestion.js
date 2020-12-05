@@ -10,44 +10,41 @@ class ViewQuestion extends Component {
   render() {
     const { users, question } = this.props;
 
+    if (!question)
+      return <NotFound />;
+
     return (
-      question ? (
-        <Container className="view-que-container">
-          <Card expand="sm" className="que-card">
-            <Card.Header>
-              <Card.Title className="primary-text">
-                {users[question.author].name}
-                {
-                  !this.props.answered ?
-                    ' asks:' :
-                    ' asked:'
-                }
-              </Card.Title>
-            </Card.Header>
-            <Card.Body className="que-card-body">
-              <div className="avatar-wrapper">
-                <Image
-                  className="avatar"
-                  src={"../../assets/images/" + users[question.author].avatarURL}
-                  alt="avatar" />
-              </div>
-              <div className="divider"></div>
-              <div className="content-wrapper">
-                {
-                  !this.props.answered ?
-                    <Unanswered question={question} /> :
-                    <Answered question={question} />
-                }
-              </div>
+      <Container className="view-que-container">
+        <Card expand="sm" className="que-card">
+          <Card.Header>
+            <Card.Title className="primary-text">
+              {users[question.author].name}
+              {
+                !this.props.answered ?
+                  ' asks:' :
+                  ' asked:'
+              }
+            </Card.Title>
+          </Card.Header>
+          <Card.Body className="que-card-body">
+            <div className="avatar-wrapper">
+              <Image
+                className="avatar"
+                src={"../../assets/images/" + users[question.author].avatarURL}
+                alt="avatar" />
+            </div>
+            <div className="divider"></div>
+            <div className="content-wrapper">
+              {
+                !this.props.answered ?
+                  <Unanswered question={question} /> :
+                  <Answered question={question} />
+              }
+            </div>
 
-            </Card.Body>
-          </Card>
-        </Container>
-      ) :
-        (
-          <NotFound />
-        )
-
+          </Card.Body>
+        </Card>
+      </Container>
     );
   }
 }
