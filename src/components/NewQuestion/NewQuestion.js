@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Button, Card, Container, Form } from 'react-bootstrap';
 import { handleSaveQuestion } from '../../actions/shared';
-import './NewQuestion.css';
 import { Redirect } from 'react-router-dom';
+import './NewQuestion.css';
 
 class NewQuestion extends Component {
   state = {
