@@ -10,7 +10,6 @@ import './AppNav.css';
 
 class AppNav extends Component {
 
-
   render() {
     const { authedUser, logout } = this.props;
     return (

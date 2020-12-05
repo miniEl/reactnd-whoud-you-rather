@@ -12,12 +12,15 @@ import NotFound from './NotFound';
 import Switch from 'react-bootstrap/esm/Switch';
 
 class App extends Component {
+  // state = {
+  //   is404: false
+  // }
+
   componentDidMount() {
     this.props.dispatch(handleInitialData());
   }
   render() {
     const { authedUser } = this.props;
-    console.log(this.props);
     return (
       <Fragment>
         {
@@ -35,7 +38,6 @@ class App extends Component {
                 <Route extact path="/questions/:id" component={ViewQuestion} />
                 <Route extact path="/add/" component={NewQuestion} />
                 <Route extact path="/leaderboard" component={Leaderboard} />
-                <Route component={NotFound} />
               </Switch>
             </Fragment>
         }
@@ -44,8 +46,7 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = ({ authedUser, questions }) => {
-
+const mapStateToProps = ({ authedUser }) => {
   return {
     authedUser
   }
