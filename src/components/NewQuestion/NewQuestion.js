@@ -30,10 +30,7 @@ class NewQuestion extends Component {
     const author = authedUser.id;
     const optionOneText = optionOne;
     const optionTwoText = optionTwo;
-    dispatch(handleSaveQuestion({ author, optionOneText, optionTwoText }));
-    this.setState(() => ({
-      home: true
-    }));
+    dispatch(handleSaveQuestion({ author, optionOneText, optionTwoText }, '/home'));
   }
 
   render() {

@@ -10,8 +10,10 @@ const users = (state = {}, action) => {
         case ADD_USER_QUESTION:
             return {
                 ...state,
-                ...state[action.author],
-                questions: [...state[action.author].questions, action.qid]
+                [action.author]: {
+                    ...state[action.author],
+                    questions: [...state[action.author].questions, action.qid]
+                }
             };
         case ADD_USER_ANSWER:
             return {
