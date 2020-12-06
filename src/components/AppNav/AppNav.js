@@ -12,7 +12,6 @@ class AppNav extends Component {
 
   render() {
     const { authedUser, path, logout, newPath } = this.props;
-    console.log(path);
     return (
       <Navbar variant="dark" bg="dark" expand="sm">
         <Navbar.Brand>Whould You Rather</Navbar.Brand>
