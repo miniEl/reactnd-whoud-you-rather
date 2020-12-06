@@ -20,7 +20,7 @@ class Login extends Component {
   }
 
   render() {
-    const { users, authenticate } = this.props;
+    const { users, authenticate, path } = this.props;
     return (
       <Container className="login-container">
         <Card expand="sm" className="login-card">
@@ -53,7 +53,8 @@ class Login extends Component {
               disabled={!this.state.selectedUser}
               onClick={() => authenticate(users[this.state.selectedUser])}
               type="submit"
-              value="submit">
+              value="submit"
+              to={path}>
               Sign in
               </Button>
           </Card.Body>
@@ -63,9 +64,10 @@ class Login extends Component {
   }
 }
 
-const mapStateToProps = ({ users }) => {
+const mapStateToProps = ({ users, path }) => {
   return {
-    users
+    users,
+    path
   }
 }
 

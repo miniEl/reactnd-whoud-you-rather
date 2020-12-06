@@ -44,10 +44,10 @@ const mapsStateToProps = ({ authedUser, questions }) => {
   return {
     unanswered: questionsList.filter((question) => {
       return !Object.keys(authedUser.answers).includes((question.id));
-    }),
+    }).sort((a, b) => b.timestamp - a.timestamp),
     answered: questionsList.filter((question) => {
       return Object.keys(authedUser.answers).includes((question.id));
-    })
+    }).sort((a, b) => b.timestamp - a.timestamp)
 
   }
 }

@@ -9,7 +9,6 @@ import './ViewQuestion.css';
 class ViewQuestion extends Component {
   render() {
     const { users, question } = this.props;
-
     if (!question)
       return <NotFound />;
 

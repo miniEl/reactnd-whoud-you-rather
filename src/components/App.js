@@ -1,39 +1,34 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { handleInitialData } from '../actions/shared';
-import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Redirect, Route, withRouter } from 'react-router-dom';
 import AppNav from './AppNav/AppNav';
 import Login from './Login/Login';
 import Home from './Home/Home';
 import Leaderboard from './Leaderboard/Leaderboard';
 import NewQuestion from './NewQuestion/NewQuestion';
 import ViewQuestion from './ViewQuestion/ViewQuestion';
-import NotFound from './NotFound';
 import Switch from 'react-bootstrap/esm/Switch';
 
 class App extends Component {
-  // state = {
-  //   is404: false
-  // }
-
   componentDidMount() {
-    this.props.dispatch(handleInitialData());
+    this.props.dispatch(handleInitialData(this.props.location.pathname));
   }
   render() {
-    const { authedUser } = this.props;
+    const { authedUser, path } = this.props;
     return (
-      <Fragment>
+      <Router>
         {
           !authedUser ?
             <Fragment>
-              <Redirect to="/login" />
+              <Redirect to={"/login"} />
               <Route exact path="/login" component={Login} />
             </Fragment>
             :
             <Fragment>
               <AppNav />
               <Switch>
-                <Redirect to="/home" />
+                <Redirect to={path} />
                 <Route extact path="/home" component={Home} />
                 <Route extact path="/questions/:id" component={ViewQuestion} />
                 <Route extact path="/add/" component={NewQuestion} />
@@ -41,15 +36,16 @@ class App extends Component {
               </Switch>
             </Fragment>
         }
-      </Fragment>
+      </Router>
     );
   }
 }
 
-const mapStateToProps = ({ authedUser }) => {
+const mapStateToProps = ({ authedUser, path }) => {
   return {
-    authedUser
+    authedUser,
+    path
   }
 }
 
-export default connect(mapStateToProps)(App);
+export default withRouter(connect(mapStateToProps)(App));
