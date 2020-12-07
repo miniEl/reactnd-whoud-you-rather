@@ -2,7 +2,6 @@
 This project is for Udacity as a. part of React Nanodegree Program.
 
 ## Table of Contents
-* [Description](#description)
 * [How to install](#how-to-install)
 * [Dependencies](#Dependencies)
 
