@@ -1,5 +1,5 @@
 # Whoud You Rather
-This project is for Udacity as a. part of React Nanodegree Program.
+This project is for Udacity as a part of React Nanodegree Program.
 
 ## Table of Contents
 * [How to install](#how-to-install)
